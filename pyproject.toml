@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rockychef"
+version = "0.1.0"
+description = "Generate delicious rock recipes."
+requires-python = ">=3.12"
+
+authors = [{ name = "Jahin Z.", email = "jahinzee@proton.me" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+
+dependencies = [
+    "cachier>=3.1.2",
+    "mypy>=1.15.0",
+    "qwikidata>=0.4.2",
+    "tracery>=0.1.1",
+]
+
+[[tool.mypy.overrides]]
+module = ["qwikidata.*", "tracery.*"]
+follow_untyped_imports = true
+
+[project.scripts]
+rockychef = "rockychef:main"
